@@ -1,0 +1,14 @@
+[Unit]
+Description=Abuse Reporting Bot Service
+After=network.target mysql.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/abuse-bot
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
